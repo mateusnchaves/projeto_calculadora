@@ -6,7 +6,7 @@
 
     <groupId>br.com.financapp</groupId>
     <artifactId>projeto_calculadora</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
     <packaging>jar</packaging>
     <name>projeto_calculadora</name>
     <description>Módulo de cálculos básicos do FinançApp</description>
