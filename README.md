@@ -9,8 +9,8 @@
 **Aluno:** Mateus Novais Chaves
 **RA:** 251382
 **Curso:** Análise e Desenvolvimento de Sistemas — Facens
-**Disciplina:** _(preencher)_
-**Professor:** _(preencher)_
+**Disciplina:** UI/UX
+**Professor:** Daniel Ohata
 **Semestre:** 2026.2
 
 # 2. Visão Geral
