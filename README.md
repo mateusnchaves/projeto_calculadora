@@ -162,15 +162,40 @@ Cada teste usa `assertEquals` ou `assertThrows` e também imprime no console as 
 
 ![Execução dos testes JUnit](images/testes/junit_testes.png)
 
-# 12. Documentação JavaDoc
+# 12. Refatoração
+
+Depois da versão inicial (1.0), foi criada a branch `Refatoracao`, onde o código foi reorganizado **sem alterar o comportamento** (versão 2.0).
+
+| Técnica | O que mudou |
+|---|---|
+| **Extração de métodos** | Cada operação ganhou um método próprio: `somar`, `subtrair`, `multiplicar` e `dividir`. As validações foram para `validarOperacao` e `validarDivisor`. No `Main`, o código que ficava todo dentro do `main` foi dividido em `exibirCabecalho`, `executarRodada`, `lerTexto` e `exibirResultado`. |
+| **Simplificação de condicionais** | A cadeia de `if / else if` virou um `switch`, com a validação feita antes. |
+| **Melhoria nos nomes de variáveis** | `r` → `resultado`, `sc` → `entrada`, `c` → `calculadora`, `x` → `primeiraEntrada`. Os parâmetros ganharam nomes como `dividendo`/`divisor` e `minuendo`/`subtraendo`. |
+| **Legibilidade e organização** | Os símbolos viraram constantes (`SOMA`, `SUBTRACAO`, `MULTIPLICACAO`, `DIVISAO`), e as operações aceitas ficaram em `OPERACOES_SUPORTADAS`. |
+
+![Antes e depois da refatoração](images/refatoracao/antes_depois_calc.png)
+
+### Testes após a refatoração
+
+Os **mesmos 14 testes JUnit** foram executados novamente na branch `Refatoracao`, sem nenhuma alteração na classe de testes, e todos passaram. O funcionamento do sistema permaneceu correto.
+
+![Testes JUnit após a refatoração](images/refatoracao/junit_testes_refatoracao.png)
+
+# 13. Documentação JavaDoc
 
 A documentação foi gerada com JavaDoc e está em [`docs/index.html`](docs/index.html). Estão documentados classes, atributos, construtores, métodos, parâmetros (`@param`), retornos (`@return`), exceções (`@throws`), autor (`@author`) e versão (`@version`).
 
 ![JavaDoc - pacote calculadora](images/javadoc/javadoc_index.png)
 
-![JavaDoc - classe Calculadora](images/javadoc/javadoc_calculadora.png)
+Classe `Calculadora` na versão 1.0:
 
-# 13. Como Executar
+![JavaDoc - classe Calculadora v1.0](images/javadoc/javadoc_calculadora.png)
+
+Métodos da classe `Calculadora` na versão 2.0, após a refatoração:
+
+![JavaDoc - métodos da Calculadora v2.0](images/javadoc/javadoc_metodos_v2.png)
+
+# 14. Como Executar
 
 **Na IDE (recomendado):** abra a pasta do projeto no IntelliJ, Eclipse ou VS Code. A IDE reconhece o `pom.xml` e baixa o JUnit automaticamente. Depois:
 - clique com o botão direito em `TesteCalculadora.java` → **Run** para executar os testes;
@@ -190,15 +215,15 @@ java -cp target/classes calculadora.Main    # executa a calculadora
 javadoc -d docs -sourcepath src -subpackages calculadora -private -author -version -encoding UTF-8 -docencoding UTF-8 -charset UTF-8
 ```
 
-# 14. Versionamento
+# 15. Versionamento
 
 | Branch | Conteúdo |
 |---|---|
-| `main` | Branch principal do projeto |
-| `Refatoracao` | Código reorganizado com técnicas de refatoração |
+| `main` | Branch principal. Recebeu a versão inicial (1.0) e, ao final, o merge da refatoração |
+| `Refatoracao` | Código reorganizado com técnicas de refatoração (versão 2.0) |
 
 Os commits seguem prefixos que indicam o tipo de alteração: `feat` (funcionalidade), `fix` (correção), `test` (testes), `docs` (documentação), `refactor` (refatoração) e `chore` (configuração).
 
-# 15. Link do Repositório
+# 16. Link do Repositório
 
 https://github.com/mateusnchaves/projeto_calculadora
